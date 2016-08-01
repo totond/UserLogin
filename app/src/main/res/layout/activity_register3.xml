@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Register.RegisterActivity3">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y30"
+        android:id="@+id/layout_top"
+        android:background="@color/colorBackground"
+        android:paddingLeft="@dimen/x22"
+        android:paddingRight="@dimen/x22">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/x22"
+            android:text="@string/register_textview"
+            android:textColor="@color/color_default"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/RegisterTitle1"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y40"
+        android:id="@+id/Register_layout_image"
+        android:layout_below="@+id/layout_top">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/registerstep3"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y31"
+        android:id="@+id/layout_phone_nunber"
+        android:layout_below="@+id/Register_layout_image"
+        android:paddingRight="@dimen/x22"
+        android:paddingLeft="@dimen/x22">
+
+        <scut.userlogin.CustomView.EditText_PassWordDisplay
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/EditText_PasswordRegisterInput"
+            android:inputType="textPassword"
+            android:digits="0123456789abcdefghigklmnopqrstuvwxyzQWERTYUIOPASDFGHJKLZXCVBNM"
+            android:maxLength="20"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/x14"
+            android:background="@null"
+            android:hint="@string/password_setting_default"
+            android:drawableRight="@mipmap/ic_launcher" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorline"
+            android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/y7"
+        android:layout_below="@id/layout_phone_nunber"
+        android:paddingLeft="@dimen/x22"
+        android:paddingRight="@dimen/x22">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/x12"
+            android:textColor="@color/colorparameter1"
+            android:id="@+id/password_input_hint"
+            android:text="@string/password_input_hint"/>
+
+        <scut.userlogin.CustomView.ButtonCheckBlank
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y25"
+            android:text="@string/next_step_button"
+            android:id="@+id/btn_NextStep3"
+            android:textSize="@dimen/x16"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/password_input_hint"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/colorparameter3"
+            android:background="@drawable/next_btn"
+            />
+
+    </RelativeLayout>
+</RelativeLayout>

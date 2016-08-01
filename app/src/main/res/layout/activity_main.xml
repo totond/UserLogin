@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/layout_default"
+    tools:context="scut.userlogin.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y30"
+        android:id="@+id/layout_top"
+        android:background="@color/colorBackground"
+        android:paddingLeft="@dimen/x21"
+        android:paddingRight="@dimen/x21">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/x22"
+        android:text="@string/login_textview"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textColor="@color/color_default"
+        android:id="@+id/LoginTitle"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y31"
+        android:id="@+id/layout_phone_nunber"
+        android:layout_below="@+id/layout_top"
+        android:paddingLeft="@dimen/x22">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/TextView_UserName"
+            android:text="@string/phone_number_Tittle"
+            android:textSize="@dimen/x14"
+            android:layout_centerVertical="true"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/EditText_UserName"
+            android:hint="@string/phone_number_default"
+            android:textSize="@dimen/x14"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:layout_marginLeft="@dimen/x68" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/Divider1"
+        android:background="@color/colorline"
+        android:layout_below="@id/layout_phone_nunber"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y31"
+        android:id="@+id/layout_password"
+        android:layout_below="@+id/layout_phone_nunber"
+        android:paddingLeft="@dimen/x22"
+        android:paddingRight="@dimen/x22">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/TextView_Password"
+        android:text="@string/password_Tittle"
+        android:textSize="@dimen/x14"
+        android:layout_centerVertical="true" />
+
+
+
+
+    <scut.userlogin.CustomView.EditText_PassWordDisplay
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/EditText_Password"
+        android:inputType="textPassword"
+        android:digits="0123456789abcdefghigklmnopqrstuvwxyzQWERTYUIOPASDFGHJKLZXCVBNM"
+        android:drawableRight="@mipmap/ic_launcher"
+        android:hint="@string/password_default"
+        android:maxLength="20"
+        android:textSize="@dimen/x14"
+        android:background="@null"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/x68"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/Divider2"
+        android:background="@color/colorline"
+        android:layout_below="@id/layout_password"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/login_btn_layout"
+        android:layout_below="@+id/Divider2"
+        android:layout_marginTop="@dimen/y15"
+        android:paddingLeft="@dimen/x22"
+        android:paddingRight="@dimen/x22">
+
+    <scut.userlogin.CustomView.ButtonCheckBlank
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y25"
+        android:id="@+id/btn_Login"
+        android:text="@string/login_button"
+        android:textSize="@dimen/x14"
+        android:textColor="@color/color_default"
+        android:background="@drawable/next_btn"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/register_textview"
+        android:textSize="@dimen/x14"
+        android:id="@+id/TextView_Register"
+        android:layout_below="@+id/btn_Login"
+        android:layout_marginTop="@dimen/y15"
+        android:textColor="@color/colorparameter1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/forget_password_textview"
+        android:textSize="@dimen/x14"
+        android:id="@+id/TextView_ForgetPassword"
+        android:layout_below="@+id/btn_Login"
+        android:layout_marginTop="@dimen/y15"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/colorparameter1"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
