@@ -1,26 +1,25 @@
 package scut.userlogin.Register;
 
 import android.content.Intent;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
 import android.widget.EditText;
 
 import java.util.ArrayList;
 
 import scut.userlogin.CustomView.ButtonCheckBlank;
-import scut.userlogin.CustomView.ButtonCheckPhonenumber;
+import scut.userlogin.CustomView.ButtonWithCountDown;
 import scut.userlogin.R;
-import scut.userlogin.RegisterClass;
 
 public class RegisterActivity2 extends AppCompatActivity implements View.OnClickListener{
 
     private EditText et_VerificationCodeInput;
-    private Button btn_ReGetVerificationCode;
+    private ButtonWithCountDown btn_ReGetVerificationCode;
     private ButtonCheckBlank btn_NextStep;
-    private Handler handler;
+    private ViewGroup layout_back;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +33,13 @@ public class RegisterActivity2 extends AppCompatActivity implements View.OnClick
 
     private void init(){
         et_VerificationCodeInput = (EditText) findViewById(R.id.EditText_VerificationCodeInput);
-        btn_ReGetVerificationCode = (Button) findViewById(R.id.btn_ReGetVerificationCode);
+        btn_ReGetVerificationCode = (ButtonWithCountDown) findViewById(R.id.btn_ReGetVerificationCode);
         btn_NextStep = (ButtonCheckBlank) findViewById(R.id.btn_NextStep2);
+        layout_back = (ViewGroup) findViewById(R.id.layout_back);
 
         btn_ReGetVerificationCode.setOnClickListener(this);
         btn_NextStep.setOnClickListener(this);
+        layout_back.setOnClickListener(this);
 
         //测试Intent传值，成功！
 //        Intent intent = getIntent();
@@ -46,20 +47,19 @@ public class RegisterActivity2 extends AppCompatActivity implements View.OnClick
 
     }
 
-
+    //处理倒计时
     private void HandleCountDown(){
-        RegisterClass registerClass = new RegisterClass();
-        handler = new Handler();
-        //使用注册功能类里面的按钮计时器
-        registerClass.TimerVerificationButton(btn_ReGetVerificationCode,handler,10);
+        btn_ReGetVerificationCode.StartCountDown(10,"重发","s后重新发送");
     }
 
+    //初始化自定义的Button
     private  void initButton(){
         ArrayList<EditText> editTexts = new ArrayList<EditText>();
         editTexts.add(et_VerificationCodeInput);
         btn_NextStep.AddListeningEditTexts(editTexts);
     }
 
+    //定义按钮功能
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -69,6 +69,10 @@ public class RegisterActivity2 extends AppCompatActivity implements View.OnClick
             case R.id.btn_ReGetVerificationCode:
                 HandleCountDown();
                 break;
+            case R.id.layout_back:
+                finish();
+                overridePendingTransition(R.anim.fade_in, R.anim.out_from_right);
+                break;
         }
 
     }
@@ -77,16 +81,11 @@ public class RegisterActivity2 extends AppCompatActivity implements View.OnClick
 
     }
 
+    //打开注册页面3
     private void StartRegister3(){
         startActivity(new Intent(this,RegisterActivity3.class));
+        overridePendingTransition(R.anim.in_from_right, R.anim.fade_out);
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (!(handler == null)){
-            handler.removeCallbacksAndMessages(null);
-            System.out.println("handler close!");
-        }
-    }
+
 }

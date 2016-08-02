@@ -10,9 +10,25 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/y30"
         android:id="@+id/layout_top"
-        android:background="@color/colorBackground"
-        android:paddingLeft="@dimen/x21"
-        android:paddingRight="@dimen/x21">
+        android:background="@color/colorBackground">
+
+        <RelativeLayout
+            android:id="@+id/layout_back"
+            android:layout_alignParentLeft="true"
+            android:layout_width="@dimen/x43"
+            android:layout_height="@dimen/x43"
+            android:layout_marginLeft="@dimen/x8"
+            android:background="@drawable/back_btn">
+
+            <Button
+                android:id="@+id/back"
+                android:layout_centerInParent="true"
+                android:layout_width="@dimen/x10"
+                android:layout_height="@dimen/y13"
+                android:background="@mipmap/back"
+                android:clickable="false"
+                android:focusable="false" />
+        </RelativeLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -116,7 +132,7 @@
         android:id="@+id/btn_Login"
         android:text="@string/login_button"
         android:textSize="@dimen/x14"
-        android:textColor="@color/color_default"
+        android:textColor="@drawable/next_btn_text_selector"
         android:background="@drawable/next_btn"/>
 
     <TextView
